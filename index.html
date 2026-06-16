@@ -64,7 +64,7 @@ header{position:absolute;top:0;left:0;right:0;z-index:60;transition:background .
 header.fixed{position:fixed;background:var(--brand);box-shadow:0 8px 30px -18px rgba(0,0,0,.5)}
 .nav{display:flex;align-items:center;gap:24px;padding:20px 0}
 .brand{display:flex;align-items:center;gap:11px;flex:none}
-.brand .mark{width:46px;height:46px;border-radius:9px;flex:none;background:#fff;display:grid;place-items:center;padding:4px;overflow:hidden;box-shadow:0 4px 14px -7px rgba(0,0,0,.35)}
+.brand .mark{width:46px;height:46px;border-radius:11px;flex:none;background:var(--brand);display:grid;place-items:center;padding:5px;overflow:hidden;box-shadow:0 0 0 1px rgba(255,255,255,.3),0 4px 14px -8px rgba(0,0,0,.4)}
 .brand .mark img{width:100%;height:100%;object-fit:contain;display:block}
 .brand .bt{font-family:var(--display);font-weight:700;font-size:1.2rem;color:#fff;line-height:1}
 .brand .bs{display:block;font-size:.6rem;font-weight:500;letter-spacing:.18em;text-transform:uppercase;color:rgba(255,255,255,.7);margin-top:4px}
@@ -169,9 +169,6 @@ header.fixed{position:fixed;background:var(--brand);box-shadow:0 8px 30px -18px 
 /* ============================================================
    IMAGE BAND
    ============================================================ */
-.imgband{height:clamp(260px,34vw,420px);overflow:hidden;position:relative;background:var(--cream-2)}
-.imgband img,.imgband svg{width:100%;height:100%;object-fit:cover;display:block}
-.imgband .cap{position:absolute;left:var(--gut);bottom:22px;font-size:.78rem;color:rgba(17,17,17,.5);font-weight:500;background:rgba(255,255,255,.7);padding:5px 12px;border-radius:6px}
 
 /* ============================================================
    ABOUT
@@ -327,6 +324,7 @@ footer{background:var(--ink);color:#fff;padding:clamp(56px,7vw,84px) 0 32px}
   .faq-aside{position:static}
   .ind-grid{grid-template-columns:1fr}
   .ind .label{margin-bottom:6px}
+  .cta{clip-path:none}
 }
 @media(max-width:680px){
   body{font-size:16px;padding-bottom:72px}
@@ -489,11 +487,6 @@ footer{background:var(--ink);color:#fff;padding:clamp(56px,7vw,84px) 0 32px}
   </div>
 </section>
 
-<!-- ===================== IMAGE BAND ===================== -->
-<div class="imgband">
-  <img src="band.jpg" alt="ZB Accounting" onerror="this.remove()">
-</div>
-
 <!-- ===================== ABOUT ===================== -->
 <section class="about" id="about">
   <div class="wrap about-grid">
@@ -647,7 +640,7 @@ footer{background:var(--ink);color:#fff;padding:clamp(56px,7vw,84px) 0 32px}
 </footer>
 
 <div class="mcta" id="mcta">
-  <a href="#contact" class="btn btn-brand">Book a free consult</a>
+  <a href="#contact" class="btn btn-brand">Request a consultation</a>
   <a href="tel:+61288409418" class="btn btn-line" aria-label="Call"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M22 16.9v3a2 2 0 0 1-2.2 2 19.8 19.8 0 0 1-8.6-3.1 19.5 19.5 0 0 1-6-6A19.8 19.8 0 0 1 2.1 4.2 2 2 0 0 1 4.1 2h3a2 2 0 0 1 2 1.7c.1 1 .4 1.9.7 2.8a2 2 0 0 1-.5 2.1L8.1 9.9a16 16 0 0 0 6 6l1.3-1.3a2 2 0 0 1 2.1-.4c.9.3 1.8.6 2.8.7a2 2 0 0 1 1.7 2z"/></svg></a>
 </div>
 
