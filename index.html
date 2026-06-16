@@ -1,0 +1,637 @@
+<!DOCTYPE html>
+<html lang="en-AU">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>ZB Accounting — Accounting, tax &amp; advisory for Australian business</title>
+<meta name="description" content="ZB Accounting is a public accounting practice and Registered Tax Agent in NSW, led by Zaher Bishay — accounting, bookkeeping, taxation, payroll, budgeting, business start-up and consultation for individuals and businesses." />
+<meta name="theme-color" content="#d9791f" />
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700;800&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
+<style>
+:root{
+  --brand:#d9791f;          /* ZB orange */
+  --brand-2:#ef8c33;        /* lighter orange (accents on black) */
+  --brand-deep:#111111;     /* black — deep/hover states */
+  --brand-ink:#cf6f15;      /* deeper orange — small text accents */
+  --ink:#111111;            /* true black */
+  --ink-soft:#4a4a4a;       /* neutral grey */
+  --muted:#8a8a90;          /* neutral grey */
+  --paper:#ffffff;
+  --cream:#f5f5f5;          /* light neutral band (no brown) */
+  --cream-2:#e9e9e9;
+  --line:#e6e6e6;
+  --line-dk:rgba(255,255,255,.22);
+
+  --display:"Poppins","Inter",sans-serif;
+  --sans:"Inter",-apple-system,BlinkMacSystemFont,"Segoe UI",sans-serif;
+
+  --maxw:1180px;
+  --gut:clamp(20px,4vw,48px);
+  --ease:cubic-bezier(.2,.6,.3,1);
+}
+*{margin:0;padding:0;box-sizing:border-box}
+html{scroll-behavior:smooth;-webkit-text-size-adjust:100%}
+body{font-family:var(--sans);background:var(--paper);color:var(--ink);font-size:16.5px;line-height:1.6;-webkit-font-smoothing:antialiased;overflow-x:hidden}
+img,svg{display:block;max-width:100%}
+a{color:inherit;text-decoration:none}
+::selection{background:var(--brand);color:#fff}
+h1,h2,h3,h4{font-family:var(--display);font-weight:700;line-height:1.05;letter-spacing:-.02em}
+.wrap{max-width:var(--maxw);margin:0 auto;padding:0 var(--gut)}
+.label{font-family:var(--sans);font-size:.95rem;font-weight:500;color:var(--muted)}
+
+/* buttons */
+.btn{display:inline-flex;align-items:center;gap:.6em;font-family:var(--sans);font-weight:600;font-size:.95rem;
+  padding:14px 24px;border-radius:8px;border:1.5px solid transparent;cursor:pointer;transition:transform .25s var(--ease),background .25s,color .25s,border-color .25s}
+.btn svg{width:16px;height:16px;transition:transform .25s var(--ease)}
+.btn:hover{transform:translateY(-2px)}.btn:hover svg{transform:translateX(3px)}
+.btn-white{background:#fff;color:var(--ink)}
+.btn-white:hover{background:var(--cream)}
+.btn-brand{background:var(--brand);color:#fff}
+.btn-brand:hover{background:var(--brand-deep)}
+.btn-ink{background:var(--ink);color:#fff}
+.btn-ink:hover{background:#000}
+.btn-line{background:transparent;border-color:var(--line);color:var(--ink)}
+.btn-line:hover{background:var(--ink);color:#fff;border-color:var(--ink)}
+.btn-outline-w{background:transparent;border-color:rgba(255,255,255,.5);color:#fff}
+.btn-outline-w:hover{background:rgba(255,255,255,.12);border-color:#fff}
+
+/* ============================================================
+   HEADER  (centred nav · phone · contact)
+   ============================================================ */
+header{position:absolute;top:0;left:0;right:0;z-index:60;transition:background .35s var(--ease),box-shadow .35s var(--ease)}
+header.fixed{position:fixed;background:var(--brand);box-shadow:0 8px 30px -18px rgba(0,0,0,.5)}
+.nav{display:flex;align-items:center;gap:24px;padding:20px 0}
+.brand{display:flex;align-items:center;gap:11px;flex:none}
+.brand .mark{width:46px;height:46px;border-radius:9px;flex:none;background:#fff;display:grid;place-items:center;padding:4px;overflow:hidden;box-shadow:0 4px 14px -7px rgba(0,0,0,.35)}
+.brand .mark img{width:100%;height:100%;object-fit:contain;display:block}
+.brand .bt{font-family:var(--display);font-weight:700;font-size:1.2rem;color:#fff;line-height:1}
+.brand .bs{display:block;font-size:.6rem;font-weight:500;letter-spacing:.18em;text-transform:uppercase;color:rgba(255,255,255,.7);margin-top:4px}
+.menu{display:flex;align-items:center;gap:28px;margin:0 auto}
+.menu>li{position:relative;list-style:none}
+.menu>li>a{display:inline-flex;align-items:center;gap:6px;color:rgba(255,255,255,.92);font-size:.95rem;font-weight:500;padding:8px 0;cursor:pointer}
+.menu>li>a:hover{color:#fff}
+.menu .ca{width:9px;height:9px;opacity:.8;transition:transform .25s}
+.menu>li:hover .ca{transform:rotate(180deg)}
+/* dropdown */
+.dd{position:absolute;top:100%;left:50%;transform:translateX(-50%) translateY(8px);min-width:240px;background:#fff;border-radius:12px;
+  box-shadow:0 26px 60px -24px rgba(17,17,17,.4);padding:10px;opacity:0;visibility:hidden;transition:.28s var(--ease);border:1px solid var(--line)}
+.menu>li:hover .dd{opacity:1;visibility:visible;transform:translateX(-50%) translateY(10px)}
+.dd a{display:block;padding:11px 14px;border-radius:8px;color:var(--ink-soft);font-size:.92rem;font-weight:500;transition:.2s}
+.dd a:hover{background:var(--cream);color:var(--brand-ink)}
+.nav-right{display:flex;align-items:center;gap:12px;flex:none}
+.phone{display:inline-flex;align-items:center;gap:8px;background:var(--brand-deep);color:#fff;font-weight:600;font-size:.9rem;padding:11px 18px;border-radius:8px}
+.phone svg{width:15px;height:15px}
+.burger{display:none;width:44px;height:44px;border:1.5px solid rgba(255,255,255,.4);border-radius:9px;background:transparent;cursor:pointer;flex-direction:column;gap:5px;align-items:center;justify-content:center}
+.burger span{width:18px;height:1.9px;background:#fff}
+
+/* drawer */
+.drawer{position:fixed;inset:0;z-index:90;background:var(--ink);color:#fff;transform:translateX(100%);transition:transform .45s var(--ease);display:flex;flex-direction:column;padding:24px var(--gut)}
+.drawer.open{transform:translateX(0)}
+.drawer .dh{display:flex;justify-content:space-between;align-items:center;margin-bottom:26px}
+.drawer-x{width:44px;height:44px;border:1px solid var(--line-dk);border-radius:9px;background:none;color:#fff;font-size:1.5rem;cursor:pointer}
+.drawer nav{display:flex;flex-direction:column;border-top:1px solid var(--line-dk)}
+.drawer nav a{font-family:var(--display);font-size:1.55rem;font-weight:600;padding:16px 0;border-bottom:1px solid var(--line-dk)}
+.drawer .df{margin-top:auto;padding-top:24px;display:grid;gap:12px}
+.drawer .df .btn{justify-content:center}
+
+/* ============================================================
+   HERO  (terracotta block · organic bg · angled bottom)
+   ============================================================ */
+.hero{position:relative;background:var(--brand);color:#fff;overflow:hidden;
+  padding:clamp(150px,18vw,210px) 0 clamp(120px,15vw,180px);
+  clip-path:polygon(0 0,100% 0,100% 88%,0 100%)}
+.hero .bg{position:absolute;inset:0;overflow:hidden}
+.hero .bg svg{position:absolute;right:-6%;top:-12%;width:80%;height:130%;opacity:.9}
+.hero .bg::after{content:"";position:absolute;inset:0;background:linear-gradient(100deg,var(--brand) 18%,rgba(217,121,31,.35) 60%,transparent 95%)}
+.hero .wrap{position:relative;z-index:2}
+.hero h1{font-size:clamp(2.6rem,6.2vw,4.7rem);font-weight:500;max-width:16ch;letter-spacing:-.03em}
+.hero h1 b{font-weight:800}
+.hero p.sub{font-size:clamp(1.05rem,1.5vw,1.28rem);color:rgba(255,255,255,.9);max-width:46ch;margin:26px 0 38px}
+.hero .btn-white{box-shadow:0 18px 40px -18px rgba(0,0,0,.5)}
+
+/* ============================================================
+   SERVICES INTRO (label · big head · diagonal slash · subtitle)
+   ============================================================ */
+.intro{padding:clamp(60px,8vw,96px) 0 clamp(40px,5vw,60px)}
+.intro .label{display:block;margin-bottom:10px}
+.intro .row{display:flex;align-items:center;gap:26px;flex-wrap:wrap}
+.intro h2{font-size:clamp(2.1rem,4.4vw,3.3rem);font-weight:700}
+.intro .slash{width:1px;height:46px;background:var(--line);transform:rotate(20deg);flex:none}
+.intro .desc{font-size:1rem;color:var(--muted);max-width:34ch}
+
+/* ============================================================
+   PRIMARY SERVICE BAND (tinted · cards · parallelogram img · accordion)
+   ============================================================ */
+.band{background:var(--cream);position:relative;padding:clamp(56px,7vw,90px) 0 0}
+.band-grid{display:grid;grid-template-columns:1fr auto;gap:40px;align-items:start}
+.band h3.cat{font-size:clamp(2.4rem,5vw,3.8rem);font-weight:700;color:var(--ink);margin-bottom:34px}
+.cards{display:grid;grid-template-columns:repeat(3,1fr);background:#fff;border-radius:14px;overflow:hidden;box-shadow:0 30px 60px -40px rgba(17,17,17,.4)}
+.card{padding:32px 28px;border-right:1px solid var(--line)}
+.card:last-child{border-right:0}
+.card .ic{width:46px;height:46px;display:grid;place-items:center;color:var(--ink);margin-bottom:26px}
+.card .ic svg{width:34px;height:34px}
+.card h4{font-family:var(--display);font-weight:600;font-size:1.15rem;margin-bottom:10px}
+.card p{color:var(--muted);font-size:.93rem;line-height:1.55}
+/* parallelogram image */
+.para{width:300px;flex:none;align-self:stretch;clip-path:polygon(16% 0,100% 0,84% 100%,0 100%);overflow:hidden;background:var(--brand);min-height:380px}
+.para img,.para svg{width:100%;height:100%;min-height:380px;object-fit:cover;display:block}
+/* accordion rows */
+.acc{margin-top:0}
+.acc-item{border-top:1px solid var(--cream-2)}
+.acc-item:first-child{border-top:1px solid rgba(17,17,17,.12)}
+.acc-q{width:100%;background:transparent;border:0;cursor:pointer;text-align:left;display:flex;justify-content:space-between;align-items:center;gap:20px;
+  padding:22px 0;font-family:var(--display);font-weight:600;font-size:1.12rem;color:var(--ink)}
+.acc-q .pm{width:26px;height:26px;border-radius:50%;border:1.5px solid var(--line-2,rgba(17,17,17,.25));position:relative;flex:none;transition:.3s var(--ease)}
+.acc-q .pm::before,.acc-q .pm::after{content:"";position:absolute;inset:0;margin:auto;background:var(--ink);transition:.3s}
+.acc-q .pm::before{width:11px;height:1.6px}.acc-q .pm::after{width:1.6px;height:11px}
+.acc-item.open .pm{background:var(--brand);border-color:var(--brand)}
+.acc-item.open .pm::before,.acc-item.open .pm::after{background:#fff}
+.acc-item.open .pm::after{transform:scaleY(0)}
+.acc-a{max-height:0;overflow:hidden;transition:max-height .4s var(--ease)}
+.acc-a p{padding:0 40px 24px 0;color:var(--ink-soft);font-size:.97rem;max-width:70ch}
+.band .acc-wrap{margin-top:46px;padding-bottom:clamp(56px,7vw,86px)}
+
+/* ============================================================
+   INDUSTRIES (multi-column index)
+   ============================================================ */
+.ind{padding:clamp(60px,8vw,100px) 0}
+.ind-grid{display:grid;grid-template-columns:200px 1fr 1fr;gap:30px}
+.ind .label{font-weight:600;color:var(--ink);font-size:1.05rem}
+.ind ul{list-style:none}
+.ind li{border-bottom:1px solid var(--line)}
+.ind a{display:flex;justify-content:space-between;align-items:center;padding:15px 0;color:var(--ink-soft);font-size:1.02rem;transition:.25s var(--ease)}
+.ind a:hover{color:var(--brand-ink);padding-left:8px}
+.ind a svg{width:15px;height:15px;opacity:0;transform:translateX(-6px);transition:.25s var(--ease)}
+.ind a:hover svg{opacity:1;transform:none}
+
+/* ============================================================
+   IMAGE BAND
+   ============================================================ */
+.imgband{height:clamp(260px,34vw,420px);overflow:hidden;position:relative;background:var(--cream-2)}
+.imgband svg{width:100%;height:100%}
+.imgband .cap{position:absolute;left:var(--gut);bottom:22px;font-size:.78rem;color:rgba(17,17,17,.5);font-weight:500;background:rgba(255,255,255,.7);padding:5px 12px;border-radius:6px}
+
+/* ============================================================
+   ABOUT
+   ============================================================ */
+.about{padding:clamp(64px,9vw,118px) 0}
+.about-grid{display:grid;grid-template-columns:1.05fr .95fr;gap:clamp(40px,6vw,80px);align-items:center}
+.about .label{display:block;margin-bottom:12px}
+.about h2{font-size:clamp(2rem,4vw,3rem);margin-bottom:20px}
+.about h2 b{color:var(--brand)}
+.about .lede{font-size:1.1rem;color:var(--ink-soft);line-height:1.55;max-width:52ch}
+.points{margin-top:30px;display:grid;gap:2px}
+.point{display:grid;grid-template-columns:38px 1fr;gap:16px;padding:20px 0;border-top:1px solid var(--line)}
+.point:last-child{border-bottom:1px solid var(--line)}
+.point .pn{font-family:var(--display);font-weight:700;color:var(--brand)}
+.point h4{font-family:var(--sans);font-weight:600;font-size:1.05rem;margin-bottom:4px}
+.point p{color:var(--muted);font-size:.96rem}
+.about-visual{position:relative}
+.about-visual .para2{clip-path:polygon(12% 0,100% 0,88% 100%,0 100%);overflow:hidden;border-radius:4px;background:var(--brand);aspect-ratio:4/4.4}
+.about-visual .para2 img,.about-visual .para2 svg{width:100%;height:100%;object-fit:cover;display:block}
+.about-stat{position:absolute;left:-10px;bottom:34px;background:#fff;border-radius:12px;padding:18px 22px;box-shadow:0 24px 50px -28px rgba(17,17,17,.45);text-align:center}
+.about-stat strong{font-family:var(--display);font-weight:700;font-size:2.1rem;display:block;line-height:1;color:var(--ink)}
+.about-stat span{font-size:.74rem;color:var(--muted);letter-spacing:.02em}
+
+/* ============================================================
+   RESULTS / STATS
+   ============================================================ */
+.stats{background:var(--ink);color:#fff;padding:clamp(56px,7vw,92px) 0}
+.stats .shead{display:flex;justify-content:space-between;align-items:flex-end;gap:24px;flex-wrap:wrap;margin-bottom:46px}
+.stats .label{color:rgba(255,255,255,.6)}
+.stats h2{font-size:clamp(1.9rem,3.6vw,2.8rem);color:#fff}
+.stat-grid{display:grid;grid-template-columns:repeat(3,1fr)}
+.stat{padding:30px 28px 30px 0;border-right:1px solid var(--line-dk)}
+.stat:last-child{border-right:0}
+.stat .tag{font-size:.74rem;text-transform:uppercase;letter-spacing:.08em;color:var(--brand-2);font-weight:600}
+.stat .big{font-family:var(--display);font-weight:700;font-size:clamp(2.8rem,5vw,4rem);line-height:.9;margin:16px 0 8px}
+.stat .bl{font-weight:600;margin-bottom:6px}
+.stat p{color:rgba(255,255,255,.66);font-size:.93rem;max-width:32ch}
+@media(max-width:760px){.stat-grid{grid-template-columns:1fr}.stat{border-right:0;border-bottom:1px solid var(--line-dk);padding-right:0}}
+
+/* ============================================================
+   TESTIMONIALS
+   ============================================================ */
+.tst{padding:clamp(60px,8vw,110px) 0;background:var(--cream)}
+.tst .label{display:block;margin-bottom:10px}
+.tst h2{font-size:clamp(2rem,4vw,3rem);margin-bottom:46px}
+.tst-grid{display:grid;grid-template-columns:1.4fr 1fr;gap:30px;align-items:start}
+.tst-feature{background:#fff;border-radius:16px;padding:clamp(32px,4vw,52px);box-shadow:0 30px 60px -42px rgba(17,17,17,.4)}
+.tst-feature blockquote{font-family:var(--display);font-weight:500;font-size:clamp(1.4rem,2.4vw,1.9rem);line-height:1.3;letter-spacing:-.02em;margin-bottom:30px}
+.tst-feature blockquote b{color:var(--brand)}
+.tside{display:grid;gap:30px}
+.tcard{background:#fff;border-radius:16px;padding:30px;box-shadow:0 30px 60px -46px rgba(17,17,17,.4)}
+.stars{color:var(--brand);letter-spacing:2px;margin-bottom:14px}
+.tcard blockquote{color:var(--ink-soft);font-size:1.02rem;line-height:1.5;margin-bottom:16px}
+.who{display:flex;align-items:center;gap:13px}
+.av{width:46px;height:46px;border-radius:50%;flex:none;display:grid;place-items:center;font-family:var(--display);font-weight:700;color:#fff}
+.who b{display:block;font-weight:600;font-size:.96rem}.who span{font-size:.83rem;color:var(--muted)}
+
+/* ============================================================
+   FAQ
+   ============================================================ */
+.faq{padding:clamp(60px,8vw,110px) 0}
+.faq-grid{display:grid;grid-template-columns:.72fr 1.28fr;gap:clamp(36px,5vw,76px);align-items:start}
+.faq-aside{position:sticky;top:110px}
+.faq-aside .label{display:block;margin-bottom:12px}
+.faq-aside h2{font-size:clamp(1.9rem,3.6vw,2.7rem);margin-bottom:16px}
+.faq-aside p{color:var(--ink-soft)}
+.faq-list{border-top:1px solid var(--line)}
+.faq-item{border-bottom:1px solid var(--line)}
+.faq-q{width:100%;background:none;border:0;cursor:pointer;text-align:left;display:flex;justify-content:space-between;gap:20px;align-items:center;
+  padding:24px 4px;font-family:var(--display);font-weight:600;font-size:1.12rem;color:var(--ink)}
+.faq-q .pm{width:28px;height:28px;border-radius:50%;border:1.5px solid rgba(17,17,17,.22);position:relative;flex:none;transition:.3s var(--ease)}
+.faq-q .pm::before,.faq-q .pm::after{content:"";position:absolute;inset:0;margin:auto;background:var(--ink);transition:.3s}
+.faq-q .pm::before{width:11px;height:1.6px}.faq-q .pm::after{width:1.6px;height:11px}
+.faq-item.open .pm{background:var(--brand);border-color:var(--brand)}
+.faq-item.open .pm::before,.faq-item.open .pm::after{background:#fff}
+.faq-item.open .pm::after{transform:scaleY(0)}
+.faq-a{max-height:0;overflow:hidden;transition:max-height .4s var(--ease)}
+.faq-a p{padding:0 50px 26px 4px;color:var(--ink-soft);font-size:1rem;line-height:1.6}
+
+/* ============================================================
+   CTA  (terracotta, angled top)
+   ============================================================ */
+.cta{position:relative;background:var(--brand);color:#fff;overflow:hidden;
+  padding:clamp(70px,9vw,120px) 0;clip-path:polygon(0 12%,100% 0,100% 100%,0 100%)}
+.cta::after{content:"zb";position:absolute;right:-.05em;bottom:-.4em;font-family:var(--display);font-weight:800;font-size:34vw;line-height:.6;color:rgba(255,255,255,.1);letter-spacing:-.07em;pointer-events:none}
+.cta .wrap{position:relative;z-index:2;text-align:center}
+.cta .label{color:rgba(255,255,255,.85)}
+.cta h2{font-size:clamp(2.2rem,5vw,4rem);margin:14px auto 20px;max-width:16ch}
+.cta p{font-size:1.12rem;color:rgba(255,255,255,.88);max-width:50ch;margin:0 auto 32px}
+.cta-actions{display:flex;gap:14px;justify-content:center;flex-wrap:wrap}
+.cta .assure{margin-top:22px;font-size:.85rem;color:rgba(255,255,255,.7)}
+
+/* ============================================================
+   FOOTER
+   ============================================================ */
+footer{background:var(--ink);color:#fff;padding:clamp(56px,7vw,84px) 0 32px}
+.foot-top{display:grid;grid-template-columns:1.6fr 1fr 1fr 1.3fr;gap:clamp(28px,4vw,52px);padding-bottom:44px;border-bottom:1px solid var(--line-dk)}
+.foot-brand .brand .bt{color:#fff}
+.foot-brand p{color:rgba(255,255,255,.6);margin:18px 0 22px;max-width:30ch;font-size:.96rem}
+.socials{display:flex;gap:10px}
+.socials a{width:40px;height:40px;border-radius:9px;border:1px solid var(--line-dk);display:grid;place-items:center;font-size:.75rem;font-weight:600;transition:.25s}
+.socials a:hover{background:var(--brand);border-color:var(--brand)}
+.foot-col h5{font-size:.74rem;letter-spacing:.12em;text-transform:uppercase;color:rgba(255,255,255,.45);margin-bottom:16px}
+.foot-col a{display:block;color:rgba(255,255,255,.82);padding:7px 0;font-size:.95rem;transition:.25s}
+.foot-col a:hover{color:var(--brand-2)}
+.fc .r{display:flex;gap:10px;align-items:flex-start;color:rgba(255,255,255,.82);font-size:.95rem;margin-bottom:13px}
+.fc .r svg{width:17px;height:17px;color:var(--brand-2);flex:none;margin-top:3px}
+.foot-bot{display:flex;justify-content:space-between;gap:16px;flex-wrap:wrap;padding-top:26px;font-size:.83rem;color:rgba(255,255,255,.5)}
+.foot-bot a:hover{color:#fff}
+
+/* sticky mobile cta */
+.mcta{position:fixed;left:0;right:0;bottom:0;z-index:55;display:none;gap:10px;padding:11px 14px calc(11px + env(safe-area-inset-bottom));
+  background:rgba(255,255,255,.96);backdrop-filter:blur(10px);border-top:1px solid var(--line);transform:translateY(120%);transition:transform .4s var(--ease)}
+.mcta.show{transform:none}
+.mcta .btn{flex:1;justify-content:center;padding:14px}.mcta .btn-line{flex:none;width:52px;padding:14px 0}
+
+/* reveal */
+.rv{opacity:0;transform:translateY(22px);transition:opacity .7s var(--ease),transform .7s var(--ease)}
+.rv.in{opacity:1;transform:none}
+@media(prefers-reduced-motion:reduce){.rv{opacity:1;transform:none}}
+
+/* ============================================================
+   RESPONSIVE
+   ============================================================ */
+@media(max-width:1000px){
+  .menu,.phone{display:none}
+  .burger{display:flex}
+  .nav-right .btn{display:none}
+  .band-grid{grid-template-columns:1fr}
+  .para{width:100%;clip-path:polygon(10% 0,100% 0,90% 100%,0 100%);margin-top:34px;min-height:280px}
+  .para img,.para svg{min-height:280px}
+  .about-grid,.tst-grid,.faq-grid{grid-template-columns:1fr}
+  .faq-aside{position:static}
+  .ind-grid{grid-template-columns:1fr}
+  .ind .label{margin-bottom:6px}
+}
+@media(max-width:680px){
+  body{font-size:16px;padding-bottom:72px}
+  .cards{grid-template-columns:1fr}
+  .card{border-right:0;border-bottom:1px solid var(--line)}
+  .card:last-child{border-bottom:0}
+  .intro .slash{display:none}
+  .tst-grid{grid-template-columns:1fr}
+  .mcta{display:flex}
+  .foot-top{grid-template-columns:1fr 1fr}
+  .hero{clip-path:polygon(0 0,100% 0,100% 95%,0 100%)}
+}
+@media(max-width:480px){.foot-top{grid-template-columns:1fr}}
+</style>
+</head>
+<body>
+
+<!-- ===================== HEADER ===================== -->
+<header id="hdr">
+  <div class="wrap nav">
+    <a href="#top" class="brand" aria-label="ZB Accounting">
+      <span class="mark"><img src="https://zbaccounting.com.au/images/logo.png" alt="ZB Accounting logo" width="40" height="40"></span>
+      <span><span class="bt">ZB Accounting</span><span class="bs">Accounting &amp; Taxation Services</span></span>
+    </a>
+    <ul class="menu">
+      <li><a href="#top">Home</a></li>
+      <li>
+        <a>Services <svg class="ca" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4"><path d="m6 9 6 6 6-6"/></svg></a>
+        <div class="dd">
+          <a href="#services">Accounting</a>
+          <a href="#services">Bookkeeping</a>
+          <a href="#services">Taxation</a>
+          <a href="#services">Payroll</a>
+          <a href="#services">Budgeting</a>
+          <a href="#services">Business start-up</a>
+          <a href="#services">Consultation</a>
+        </div>
+      </li>
+      <li><a href="#about">About</a></li>
+      <li><a href="#faq">FAQ</a></li>
+      <li><a href="#contact">Contact</a></li>
+    </ul>
+    <div class="nav-right">
+      <a href="tel:+61288409418" class="phone"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M22 16.9v3a2 2 0 0 1-2.2 2 19.8 19.8 0 0 1-8.6-3.1 19.5 19.5 0 0 1-6-6A19.8 19.8 0 0 1 2.1 4.2 2 2 0 0 1 4.1 2h3a2 2 0 0 1 2 1.7c.1 1 .4 1.9.7 2.8a2 2 0 0 1-.5 2.1L8.1 9.9a16 16 0 0 0 6 6l1.3-1.3a2 2 0 0 1 2.1-.4c.9.3 1.8.6 2.8.7a2 2 0 0 1 1.7 2z"/></svg>(02) 8840 9418</a>
+      <a href="#contact" class="btn btn-outline-w">Contact us</a>
+      <button class="burger" id="burger" aria-label="Menu"><span></span><span></span><span></span></button>
+    </div>
+  </div>
+</header>
+
+<div class="drawer" id="drawer">
+  <div class="dh">
+    <span class="brand"><span class="mark"><img src="https://zbaccounting.com.au/images/logo.png" alt="ZB Accounting logo" width="40" height="40"></span><span><span class="bt">ZB Accounting</span></span></span>
+    <button class="drawer-x" id="drawerX" aria-label="Close">×</button>
+  </div>
+  <nav>
+    <a href="#services">Services</a>
+    <a href="#about">About</a>
+    <a href="#faq">FAQ</a>
+    <a href="#contact">Contact</a>
+  </nav>
+  <div class="df">
+    <a href="#contact" class="btn btn-brand">Request a consultation →</a>
+    <a href="tel:+61288409418" class="btn btn-line">Call (02) 8840 9418</a>
+  </div>
+</div>
+
+<!-- ===================== HERO ===================== -->
+<span id="top"></span>
+<section class="hero">
+  <div class="bg" aria-hidden="true">
+    <svg viewBox="0 0 800 700" preserveAspectRatio="xMidYMid slice" xmlns="http://www.w3.org/2000/svg">
+      <defs>
+        <radialGradient id="h1" cx="40%" cy="35%" r="70%"><stop offset="0" stop-color="#e98c32"/><stop offset="1" stop-color="#d9791f"/></radialGradient>
+      </defs>
+      <circle cx="430" cy="300" r="300" fill="url(#h1)">
+        <animateTransform attributeName="transform" type="translate" dur="20s" repeatCount="indefinite" calcMode="spline" keyTimes="0;0.5;1" keySplines="0.4 0 0.6 1;0.4 0 0.6 1" values="0 0; 20 26; 0 0"/>
+      </circle>
+      <circle cx="560" cy="170" r="220" fill="#e89233" opacity=".55">
+        <animateTransform attributeName="transform" type="translate" dur="14s" repeatCount="indefinite" calcMode="spline" keyTimes="0;0.5;1" keySplines="0.4 0 0.6 1;0.4 0 0.6 1" values="0 0; -48 30; 0 0"/>
+      </circle>
+      <circle cx="640" cy="430" r="260" fill="#111111" opacity=".14">
+        <animateTransform attributeName="transform" type="translate" dur="18s" repeatCount="indefinite" calcMode="spline" keyTimes="0;0.5;1" keySplines="0.4 0 0.6 1;0.4 0 0.6 1" values="0 0; 42 -34; 0 0"/>
+      </circle>
+      <circle cx="380" cy="470" r="180" fill="#eb9b46" opacity=".4">
+        <animateTransform attributeName="transform" type="translate" dur="12s" repeatCount="indefinite" calcMode="spline" keyTimes="0;0.5;1" keySplines="0.4 0 0.6 1;0.4 0 0.6 1" values="0 0; -36 -46; 0 0"/>
+      </circle>
+      <path d="M500 0c120 120 60 320-80 420S150 700 150 700H800V0z" fill="#111111" opacity=".16"/>
+    </svg>
+  </div>
+  <div class="wrap">
+    <h1>Accounting and tax, <b>handled with care</b></h1>
+    <p class="sub">ZB Accounting is a public accounting practice and Registered Tax Agent, helping individuals and businesses across NSW with accounting, bookkeeping, tax, payroll and more.</p>
+    <a href="#contact" class="btn btn-white">Request a consultation
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a>
+  </div>
+</section>
+
+<!-- ===================== SERVICES INTRO ===================== -->
+<section class="intro" id="services">
+  <div class="wrap rv">
+    <span class="label">Services</span>
+    <div class="row">
+      <h2>Built around your business</h2>
+      <span class="slash"></span>
+      <span class="desc">Accounting, bookkeeping, tax, payroll, budgeting &amp; business advice.</span>
+    </div>
+  </div>
+</section>
+
+<!-- ===================== PRIMARY SERVICE BAND ===================== -->
+<section class="band">
+  <div class="wrap">
+    <div class="band-grid">
+      <div>
+        <h3 class="cat rv">Our services</h3>
+        <div class="cards rv">
+          <div class="card">
+            <span class="ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M4 20V9M10 20V4M16 20v-7M22 20H2"/></svg></span>
+            <h4>Accounting</h4>
+            <p>We take care of your accounting — annual accounts and periodic management accounts for tax, appraisal and planning — easing the burden on you and your staff.</p>
+          </div>
+          <div class="card">
+            <span class="ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M4 4h13a2 2 0 0 1 2 2v14H6a2 2 0 0 1-2-2z"/><path d="M8 8h7M8 12h7M8 16h4"/></svg></span>
+            <h4>Bookkeeping</h4>
+            <p>Up-to-date, accurate financial records and management accounts, with regular, relevant advice for your particular situation.</p>
+          </div>
+          <div class="card">
+            <span class="ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M19 5 5 19"/><circle cx="7.5" cy="7.5" r="2.5"/><circle cx="16.5" cy="16.5" r="2.5"/></svg></span>
+            <h4>Taxation</h4>
+            <p>A full range of taxation services — returns, advice on payments, GST, BAS and FBT, and tax-effective structures — reducing tax while meeting compliance.</p>
+          </div>
+        </div>
+      </div>
+      <div class="para rv">
+        <img src="services.jpg" alt="Working through the numbers at ZB Accounting" onerror="this.remove()">
+      </div>
+    </div>
+    <div class="acc-wrap rv">
+      <div class="acc">
+        <div class="acc-item">
+          <button class="acc-q">Payroll<span class="pm"></span></button>
+          <div class="acc-a"><p>A comprehensive, confidential payroll service — payslips, PAYG and leave administration, Single Touch Payroll lodgement, staff-cost summaries, and bonus or termination payments. Worthwhile even if you only have a few employees.</p></div>
+        </div>
+        <div class="acc-item">
+          <button class="acc-q">Budgeting<span class="pm"></span></button>
+          <div class="acc-a"><p>Budgets and financial projections that let you set targets, measure performance and consider future scenarios — and that often improve your chances of securing finance, since lenders frequently require forecasts.</p></div>
+        </div>
+        <div class="acc-item">
+          <button class="acc-q">Business start-up<span class="pm"></span></button>
+          <div class="acc-a"><p>Help getting a new venture off the ground — choosing the right structure (sole trader, partnership or company), preparing business plans, cashflow projections and forecasts, finance proposals, registrations, and a record-keeping system.</p></div>
+        </div>
+        <div class="acc-item">
+          <button class="acc-q">Consultation<span class="pm"></span></button>
+          <div class="acc-a"><p>A sounding board for management. We identify the key performance indicators in your business, give it a health check, and offer flexible, practical strategies to keep it competitive, focused and profitable.</p></div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ===================== IMAGE BAND ===================== -->
+<div class="imgband">
+  <svg viewBox="0 0 1200 420" preserveAspectRatio="xMidYMid slice" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Placeholder — clients and team">
+    <rect width="1200" height="420" fill="#ededed"/>
+    <circle cx="300" cy="240" r="130" fill="#d9791f" opacity=".9"/>
+    <circle cx="300" cy="190" r="56" fill="#111111" opacity=".8"/>
+    <path d="M210 420c0-58 40-96 90-96s90 38 90 96z" fill="#111111" opacity=".8"/>
+    <circle cx="640" cy="260" r="150" fill="#d9791f" opacity=".85"/>
+    <circle cx="640" cy="200" r="64" fill="#111111" opacity=".82"/>
+    <path d="M540 420c0-64 45-106 100-106s100 42 100 106z" fill="#111111" opacity=".82"/>
+    <g opacity=".5"><circle cx="980" cy="150" r="90" fill="#e98c32"/><circle cx="1080" cy="300" r="120" fill="#d9791f"/></g>
+  </svg>
+  <span class="cap">Image placeholder — add your own photo</span>
+</div>
+
+<!-- ===================== ABOUT ===================== -->
+<section class="about" id="about">
+  <div class="wrap about-grid">
+    <div class="about-copy rv">
+      <span class="label">About</span>
+      <h2>You deal with <b>Zaher — not a call centre.</b></h2>
+      <p class="lede">ZB Accounting is led by Zaher Bishay, a Public Accountant and Registered Tax Agent, with a Bachelor of Commerce (Accounting &amp; Business) and Fellowship of the Institute of Public Accountants (FIPA). The practice is focused on high-quality service and customer satisfaction — and on doing everything it can to meet your expectations.</p>
+      <div class="points">
+        <div class="point"><span class="pn">01</span><div><h4>Registered Tax Agent</h4><p>Registered to prepare and lodge returns for individuals, partnerships, companies and trusts.</p></div></div>
+        <div class="point"><span class="pn">02</span><div><h4>Public Accountant, FIPA</h4><p>A Fellow of the Institute of Public Accountants, with a B.Comm in Accounting &amp; Business.</p></div></div>
+        <div class="point"><span class="pn">03</span><div><h4>A proactive approach</h4><p>Advice based on proven knowledge and experience, building relationships that last.</p></div></div>
+      </div>
+    </div>
+    <div class="about-visual rv">
+      <div class="para2">
+        <img src="zaher.jpg" alt="Zaher Bishay, Public Accountant and Registered Tax Agent at ZB Accounting" onerror="this.remove()">
+      </div>
+      <div class="about-stat"><strong>FIPA</strong><span>Institute of Public Accountants</span></div>
+    </div>
+  </div>
+</section>
+
+<!-- ===================== RESULTS / STATS ===================== -->
+<section class="stats" id="taxation">
+  <div class="wrap">
+    <div class="shead rv">
+      <div><span class="label" style="color:rgba(255,255,255,.6)">Taxation</span><h2>Reduce tax while meeting compliance.</h2></div>
+      <span class="label" style="max-width:34ch;text-align:right;color:rgba(255,255,255,.6)">The right advice helps individuals and businesses reduce tax while continuing to meet their obligations.</span>
+    </div>
+    <div class="stat-grid">
+      <div class="stat rv"><span class="tag">Returns</span><div class="big">01</div><div class="bl">For every structure</div><p>Personal and company tax returns for individuals, partnerships, companies and trusts, plus advice on tax payments.</p></div>
+      <div class="stat rv"><span class="tag">GST &amp; BAS</span><div class="big">02</div><div class="bl">Registration to lodgement</div><p>GST registration, preparing, filing and adjusting your BAS and FBT obligations, with help during ATO reviews.</p></div>
+      <div class="stat rv"><span class="tag">Structures</span><div class="big">03</div><div class="bl">Asset protection</div><p>Advice on, and set-up of, tax-effective trust structures for asset protection and legitimate tax minimisation.</p></div>
+    </div>
+  </div>
+</section>
+
+<!-- ===================== TESTIMONIALS ===================== -->
+<section class="tst" id="commitment">
+  <div class="wrap">
+    <span class="label rv">Our commitment</span>
+    <h2 class="rv">Focused on you</h2>
+    <div class="tst-grid">
+      <div class="tst-feature rv">
+        <blockquote>We're focused on providing <b>high-quality service and customer satisfaction</b> — and we'll do everything we can to meet your expectations.</blockquote>
+        <div class="who"><span class="av" style="background:var(--brand)">zb</span><div><b>ZB Accounting</b><span>Zaher Bishay · Public Accountant &amp; Registered Tax Agent</span></div></div>
+      </div>
+      <div class="tside">
+        <div class="tcard rv">
+          <h4 style="font-family:var(--display);font-size:1.18rem;margin-bottom:8px">Proactive, not reactive</h4>
+          <p style="color:var(--ink-soft)">A proactive approach that delivers consistent service and builds solid relationships that stand the test of time.</p>
+        </div>
+        <div class="tcard rv">
+          <h4 style="font-family:var(--display);font-size:1.18rem;margin-bottom:8px">Knowledge you can rely on</h4>
+          <p style="color:var(--ink-soft)">Advice grounded in proven knowledge and experience, across accounting, tax and business.</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ===================== FAQ ===================== -->
+<section class="faq" id="faq">
+  <div class="wrap faq-grid">
+    <div class="faq-aside rv">
+      <span class="label">FAQ</span>
+      <h2>Questions, answered.</h2>
+      <p>Can't find what you're after? A quick call usually clears things up faster than email.</p>
+      <a href="#contact" class="btn btn-line" style="margin-top:24px">Ask us directly
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a>
+    </div>
+    <div class="faq-list rv">
+      <div class="faq-item"><button class="faq-q">What services does ZB Accounting offer?<span class="pm"></span></button><div class="faq-a"><p>Accounting, bookkeeping, taxation, payroll, budgeting, business start-up and business consultation — for both individuals and businesses.</p></div></div>
+      <div class="faq-item"><button class="faq-q">Do you prepare individual tax returns?<span class="pm"></span></button><div class="faq-a"><p>Yes. We prepare and lodge income tax returns for individuals, partnerships, companies and trusts, and advise on GST, BAS and FBT obligations.</p></div></div>
+      <div class="faq-item"><button class="faq-q">Who will I be dealing with?<span class="pm"></span></button><div class="faq-a"><p>ZB Accounting is led by Zaher Bishay, a Public Accountant and Registered Tax Agent (FIPA, B.Comm in Accounting &amp; Business). You deal directly with an experienced accountant.</p></div></div>
+      <div class="faq-item"><button class="faq-q">Can you help me start a new business?<span class="pm"></span></button><div class="faq-a"><p>Yes. We help choose the right structure, prepare business plans, cashflow projections and forecasts, assess finance requirements, complete registrations, and set up your record-keeping.</p></div></div>
+      <div class="faq-item"><button class="faq-q">How do I get started?<span class="pm"></span></button><div class="faq-a"><p>Call (02) 8840 9418, ring the mobile on 0414 320 901, or send an enquiry through the contact form. We'll discuss your requirements and how we can help.</p></div></div>
+    </div>
+  </div>
+</section>
+
+<!-- ===================== CTA ===================== -->
+<section class="cta" id="contact">
+  <div class="wrap">
+    <span class="label">Let's talk</span>
+    <h2>Let's talk about your accounting and tax.</h2>
+    <p>Get in touch with ZB Accounting. We'll talk through what you need and how we can help.</p>
+    <div class="cta-actions">
+      <a href="tel:+61288409418" class="btn btn-ink">Call (02) 8840 9418
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a>
+      <a href="tel:+61414320901" class="btn btn-outline-w">Mobile 0414 320 901</a>
+    </div>
+    <p class="assure">228 Merrylands Road, Merrylands NSW 2160 · Phone (02) 8840 9418 · Mobile 0414 320 901</p>
+  </div>
+</section>
+
+<!-- ===================== FOOTER ===================== -->
+<footer>
+  <div class="wrap">
+    <div class="foot-top">
+      <div class="foot-brand">
+        <a href="#top" class="brand"><span class="mark"><img src="https://zbaccounting.com.au/images/logo.png" alt="ZB Accounting logo" width="40" height="40"></span><span><span class="bt">ZB Accounting</span></span></a>
+        <p>Public accounting and taxation services for individuals and businesses — based in Merrylands, NSW and led by Zaher Bishay, Public Accountant and Registered Tax Agent.</p>
+      </div>
+      <div class="foot-col"><h5>Services</h5><a href="#services">Accounting</a><a href="#services">Bookkeeping</a><a href="#services">Taxation</a><a href="#services">Payroll</a><a href="#services">Budgeting</a><a href="#services">Business start-up</a><a href="#services">Consultation</a></div>
+      <div class="foot-col"><h5>Company</h5><a href="#about">About</a><a href="#taxation">Taxation</a><a href="#commitment">Our commitment</a><a href="#faq">FAQ</a><a href="#contact">Contact</a></div>
+      <div class="foot-col fc"><h5>Get in touch</h5>
+        <div class="r"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 10c0 6-9 12-9 12s-9-6-9-12a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg>228 Merrylands Road, Merrylands NSW 2160</div>
+        <div class="r"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M22 16.9v3a2 2 0 0 1-2.2 2 19.8 19.8 0 0 1-8.6-3.1 19.5 19.5 0 0 1-6-6A19.8 19.8 0 0 1 2.1 4.2 2 2 0 0 1 4.1 2h3a2 2 0 0 1 2 1.7c.1 1 .4 1.9.7 2.8a2 2 0 0 1-.5 2.1L8.1 9.9a16 16 0 0 0 6 6l1.3-1.3a2 2 0 0 1 2.1-.4c.9.3 1.8.6 2.8.7a2 2 0 0 1 1.7 2z"/></svg>(02) 8840 9418 · Phone</div>
+        <div class="r"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="7" y="2" width="10" height="20" rx="2"/><path d="M11 18h2"/></svg>0414 320 901 · Mobile</div>
+        <div class="r"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M6 9V2h12v7M6 18H4a2 2 0 0 1-2-2v-4a2 2 0 0 1 2-2h16a2 2 0 0 1 2 2v4a2 2 0 0 1-2 2h-2"/><path d="M6 14h12v8H6z"/></svg>(02) 8840 9261 · Fax</div>
+        <div class="r"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><path d="M2 12h20M12 2a15 15 0 0 1 0 20 15 15 0 0 1 0-20z"/></svg>www.zbaccounting.com.au</div>
+      </div>
+    </div>
+    <div class="foot-bot">
+      <span>© 2026 ZB Accounting · Liability limited by a scheme approved under Professional Standards Legislation.</span>
+      <span>Zaher Bishay · Public Accountant · Registered Tax Agent · FIPA</span>
+    </div>
+  </div>
+</footer>
+
+<div class="mcta" id="mcta">
+  <a href="#contact" class="btn btn-brand">Book a free consult</a>
+  <a href="tel:+61288409418" class="btn btn-line" aria-label="Call"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M22 16.9v3a2 2 0 0 1-2.2 2 19.8 19.8 0 0 1-8.6-3.1 19.5 19.5 0 0 1-6-6A19.8 19.8 0 0 1 2.1 4.2 2 2 0 0 1 4.1 2h3a2 2 0 0 1 2 1.7c.1 1 .4 1.9.7 2.8a2 2 0 0 1-.5 2.1L8.1 9.9a16 16 0 0 0 6 6l1.3-1.3a2 2 0 0 1 2.1-.4c.9.3 1.8.6 2.8.7a2 2 0 0 1 1.7 2z"/></svg></a>
+</div>
+
+<script>
+const hdr=document.getElementById('hdr'),mcta=document.getElementById('mcta');
+function onScroll(){const y=scrollY;hdr.classList.toggle('fixed',y>120);mcta.classList.toggle('show',y>700);}
+onScroll();addEventListener('scroll',onScroll,{passive:true});
+
+const drawer=document.getElementById('drawer');
+document.getElementById('burger').onclick=()=>{drawer.classList.add('open');document.body.style.overflow='hidden';};
+const close=()=>{drawer.classList.remove('open');document.body.style.overflow='';};
+document.getElementById('drawerX').onclick=close;
+drawer.querySelectorAll('a').forEach(a=>a.addEventListener('click',close));
+
+function accordion(sel){document.querySelectorAll(sel).forEach(item=>{
+  const q=item.querySelector('button'),a=item.querySelector(sel.includes('faq')?'.faq-a':'.acc-a');
+  q.onclick=()=>{const o=item.classList.contains('open');
+    document.querySelectorAll(sel).forEach(i=>{i.classList.remove('open');const aa=i.querySelector(sel.includes('faq')?'.faq-a':'.acc-a');if(aa)aa.style.maxHeight=null;});
+    if(!o){item.classList.add('open');a.style.maxHeight=a.scrollHeight+'px';}};
+});}
+accordion('.faq-item');accordion('.acc-item');
+
+const io=new IntersectionObserver(es=>es.forEach(e=>{if(e.isIntersecting){e.target.classList.add('in');io.unobserve(e.target);}}),{threshold:.1,rootMargin:'0px 0px -30px 0px'});
+document.querySelectorAll('.rv').forEach(el=>io.observe(el));
+
+if(matchMedia('(prefers-reduced-motion: reduce)').matches){const hs=document.querySelector('.hero .bg svg');if(hs&&hs.pauseAnimations)hs.pauseAnimations();}
+</script>
+</body>
+</html>
